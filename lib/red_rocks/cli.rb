@@ -16,7 +16,7 @@ class RedRocks::CLI
 
     def months #get months available
         #temporary data
-       @months = ['April 2022', 'May 2022', 'June 2022', 'July 2022', 'August 22', 'September 22', 'October 22']
+       @months = RedRocks::Month.all
     end
 
     def display_months 
