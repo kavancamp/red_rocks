@@ -1,37 +1,44 @@
 class RedRocks::CLI
 
     def call 
-        list_events
-        menu
+        
+        
         months
+        month_prompt
+        #list_events
+        menu
     end
 
-    def months #get and return months
+    def months #get months available
         #temporary data
-        months = ['April 2022', 'May 2022', 'June 2022', 'July 2022', 'August 22', 'September 22', 'October 22']
+       @months = ['April 2022', 'May 2022', 'June 2022', 'July 2022', 'August 22', 'September 22', 'October 22']
+        
     end
 
     def month_prompt #prompt user for month choice
-
-    end
-
-    def list_events #displays list of events 
-
-        @events = RedRocks::Even
-        t.all
-        @events.each.with_index(1) do |event, x| 
-            puts "#{x}. '#{event.title}' by #{event.artist} -  #{event.date}, #{event.timestamp}"
+        #months variable-iterate over array and puts out
+        @months.each.with_index(1) do | month, index |
+            puts #{index} #{month}
         end
     end
+
+    #def list_events #displays list of events 
+
+        #@events = RedRocks::Event.all
+       # @events.each.with_index(1) do |event, x| 
+         #   puts "#{x}. '#{event.title}' by #{event.artist} -  #{event.date}, #{event.timestamp}"
+      #  end
+    #end
     
     def menu
 
         puts "\nHello and Welcome to the RedRocks CLI"
+        month_prompt
 
-        input = nil
-        while input != "exit"
-            puts "\nEnter show #, 'list' to display the list again, or enter 'exit' to quit"
-            input = gets.strip.downcase 
+        #input = nil
+       # while input != "exit"
+           # puts "\nEnter show #, 'list' to display the list again, or enter 'exit' to quit"
+            #input = gets.strip.downcase 
             #Capture input using gets
             #.strip method to remove any new lines or leading and trailing whitespace.
          # if input.to_i > 0 && input.to_1 < 3
@@ -57,5 +64,5 @@ class RedRocks::CLI
              #   puts "\n Invalid Entry, please enter 'list', 'exit', or enter the number of an Event need more information on"
            # end
        # end
-    #end 
+    end 
 end
