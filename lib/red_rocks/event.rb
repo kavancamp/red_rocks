@@ -2,7 +2,7 @@ class RedRocks::Event
     attr_accessor :title, :artist, :timestamp, :date, :url, :description
     #read and write accessors
 
-    @@all=[]
+    @@all = []
     
     def self.all 
         @@all
@@ -15,7 +15,12 @@ class RedRocks::Event
         @date = date
         @timestamp = timestamp
         @url = url
+        @description = description
         @@all << self
+    end
+    
+    def self.find_by_index(index)
+        @@all[index]
       end
 
     
