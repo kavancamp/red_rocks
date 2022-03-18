@@ -3,8 +3,7 @@ class RedRocks::CLI
     def call 
         greeting
         months
-        menu
-        list_months
+        display_months
         month_prompt
         #list_events
     end
@@ -21,7 +20,7 @@ class RedRocks::CLI
         
     end
 
-    def list_months #prompt user for month choice
+    def display_months #prompt user for month choice
         #months variable-iterate over array and puts out
         @months.each.with_index(1) do | month, index |
             puts "#{index} #{month}"
@@ -30,15 +29,17 @@ class RedRocks::CLI
 
     def month_prompt
         month_choice = gets.strip 
-        #change string into integer
-        if is_valid?
-            month_choice.to_i
+        #if valid input, change string into integer
+        if is_valid?(month_choice.to_i, @months)
+
         end
     end
     
-    def is_valid?(input, date) #check validity of input
-        if month_choice.to_i <= @months.length && month_choice.to_i < 0
+    def is_valid?(input, data) #check validity of input
+        input <= data.length && input > 0
+        end
     end
+
     #def list_events #displays list of events 
 
         #@events = RedRocks::Event.all
@@ -46,17 +47,9 @@ class RedRocks::CLI
          #   puts "#{x}. '#{event.title}' by #{event.artist} -  #{event.date}, #{event.timestamp}"
       #  end
     #end
+    binding.pry
     
-    def menu
-       
-        puts "\nEnter the number for the month you would like to see Events"
-        puts "\n"
-        input = gets.strip.downcase
-
-        binding.pry
-       
-        
-    end
+    
   
 end         
 
