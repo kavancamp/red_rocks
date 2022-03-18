@@ -5,7 +5,7 @@ class RedRocks::CLI
         months
         display_months
         month_prompt
-        #list_events
+        
     end
 
    
@@ -17,41 +17,40 @@ class RedRocks::CLI
     def months #get months available
         #temporary data
        @months = ['April 2022', 'May 2022', 'June 2022', 'July 2022', 'August 22', 'September 22', 'October 22']
-        
     end
 
-    def display_months #prompt user for month choice
-        #months variable-iterate over array and puts out
+    def display_months 
+        #display months and prompt user for month choice
+        #months variable (.each)iterate over array 
         @months.each.with_index(1) do | month, index |
-            puts "#{index} #{month}"
-        end   
-    end
-
-    def month_prompt
-        month_choice = gets.strip 
-        #if valid input, change string into integer
-        if is_valid?(month_choice.to_i, @months)
-
+        puts "#{index} #{month}"
         end
     end
     
+    def month_prompt 
+        puts "\nEnter the number for the month of which you would like to see events"
+        month_choice = gets.strip.to_i
+         #remove extra/change to integer
+
+        list_events(month_choice) if is_valid?(month_choice, @months)
+        #if choice is valid, list events
+    end
+
     def is_valid?(input, data) #check validity of input
-        input <= data.length && input > 0
+        input.to_i <= data.length && input.to_i > 0
+    end
+   
+    def list_events(month_choice) #displays list of events 
+        month = @months[month_choice. - 1]
+         #index of array starts with 0
+
+        puts "\n#{month} events: "
+        @events = RedRocks::Event.all
+        @events.each.with_index(1) do |event | 
+            puts " #{event.title} by #{event.artist} -  #{event.date}, #{event.timestamp}"
         end
     end
-
-    #def list_events #displays list of events 
-
-        #@events = RedRocks::Event.all
-       # @events.each.with_index(1) do |event, x| 
-         #   puts "#{x}. '#{event.title}' by #{event.artist} -  #{event.date}, #{event.timestamp}"
-      #  end
-    #end
-    binding.pry
-    
-    
-  
-end         
+ end  
 
 
 
