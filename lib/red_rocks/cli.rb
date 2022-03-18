@@ -1,0 +1,4 @@
+class RedRocks::CLI
+
+    
+end
