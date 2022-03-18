@@ -15,5 +15,6 @@ class RedRocks::Event
         @url = url
         @@all << self
       end
-      
+
+    
 end
