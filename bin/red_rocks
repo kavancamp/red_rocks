@@ -1,5 +1,7 @@
-#!/usr/bin/env ruby
-#shebang
+#!/usr/bin/env ruby    #shebang
 require_relative '../lib/red_rocks'
 
+
+#module name:RedRocks, CLI class
 RedRocks::CLI.new.call
+#make a new instance of CLI class, method "call "
