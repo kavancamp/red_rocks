@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+#shebang
 require_relative '../lib/red_rocks'
 
 RedRocks::CLI.new.call
