@@ -1,0 +1,4 @@
+class RedRocks::Scraper 
+
+
+end 
