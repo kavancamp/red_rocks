@@ -1,12 +1,18 @@
 class RedRocks::CLI
 
     def call 
-        
-        
+        greeting
         months
+        menu
+        list_months
         month_prompt
         #list_events
-        menu
+    end
+
+   
+    def greeting
+        puts "Hello User! Welcome to the RedRocks CLI."
+        puts "\n"
     end
 
     def months #get months available
@@ -15,13 +21,24 @@ class RedRocks::CLI
         
     end
 
-    def month_prompt #prompt user for month choice
+    def list_months #prompt user for month choice
         #months variable-iterate over array and puts out
         @months.each.with_index(1) do | month, index |
-            puts #{index} #{month}
-        end
+            puts "#{index} #{month}"
+        end   
     end
 
+    def month_prompt
+        month_choice = gets.strip 
+        #change string into integer
+        if is_valid?
+            month_choice.to_i
+        end
+    end
+    
+    def is_valid?(input, date) #check validity of input
+        if month_choice.to_i <= @months.length && month_choice.to_i < 0
+    end
     #def list_events #displays list of events 
 
         #@events = RedRocks::Event.all
@@ -31,12 +48,22 @@ class RedRocks::CLI
     #end
     
     def menu
+       
+        puts "\nEnter the number for the month you would like to see Events"
+        puts "\n"
+        input = gets.strip.downcase
 
-        puts "\nHello and Welcome to the RedRocks CLI"
-        month_prompt
+        binding.pry
+       
+        
+    end
+  
+end         
+
+
 
         #input = nil
-       # while input != "exit"
+       #
            # puts "\nEnter show #, 'list' to display the list again, or enter 'exit' to quit"
             #input = gets.strip.downcase 
             #Capture input using gets
@@ -64,5 +91,3 @@ class RedRocks::CLI
              #   puts "\n Invalid Entry, please enter 'list', 'exit', or enter the number of an Event need more information on"
            # end
        # end
-    end 
-end
