@@ -8,7 +8,6 @@ class RedRocks::CLI
         
     end
 
-   
     def greeting
         puts "Hello User! Welcome to the RedRocks CLI."
         puts "\n"
@@ -23,7 +22,7 @@ class RedRocks::CLI
         #display months and prompt user for month choice
         #months variable (.each)iterate over array 
         @months.each.with_index(1) do | month, index |
-        puts "#{index} #{month}"
+        puts "#{index} #{month.name}"
         end
     end
     
