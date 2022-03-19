@@ -1,6 +1,11 @@
 class RedRocks::Scraper
 
-    def self.scrape
+    def month_scraper
+      doc = Nokogiri::HTML(open("https://www.redrocksonline.com/events/?view=calendar"))
+      
+    end
+
+    def event.scrape
       doc = Nokogiri::HTML(open("https://www.redrocksonline.com/events/?view=calendar"))
   
       doc.css("div.entry.event-icons.clearfix").each do |event|
